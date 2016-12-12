@@ -72,7 +72,7 @@ function ask(stateName){
       "action": "input",
       "maxDigits": 1,
       "timeOut": 10,
-      "eventUrl": [`https://${process.env.HOST}/reply/${stateName}`]
+      "eventUrl": [`${process.env.HOST}/reply/${stateName}`]
     })
 
   }
