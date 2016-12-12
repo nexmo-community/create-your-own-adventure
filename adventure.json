@@ -1,0 +1,64 @@
+{
+  "start": {
+    "text": "You've woken up on a boat, what do you do?",
+    "choices": [
+      {
+        "dtmf": "1",
+        "state": "boat_fire",
+        "text": "set fire to the boat"
+      },{
+        "dtmf": "2",
+        "state": "captain",
+        "text": "assume you are the captain"
+      }
+    ]
+  },
+
+  "boat_fire": {
+    "text": "The boat is on fire, bad one. What next?",
+    "choices": [
+      {
+        "dtmf": "1",
+        "state": "overboard",
+        "text": "jump overboard"
+      },{
+        "dtmf": "2",
+        "state": "snack",
+        "text": "head to the galley for a snack"
+      }
+    ]
+  },
+
+  "snack": {
+    "text": "You head down to the galley for a snack, but the galley is on fire and now you're trapped.",
+    "end": true
+  },
+
+  "overboard": {
+    "text": "You're overboard - there are sharks, and things aren't looking good",
+    "end": true
+  },
+
+  "captain": {
+    "text": "You've become captain. Well Done! Where do you want to sail to?",
+    "choices": [
+      {
+        "dtmf": "1",
+        "state": "north",
+        "text": "sail Northward"
+      },{
+        "dtmf": "2",
+        "state": "south",
+        "text": "go south"
+      }
+    ]
+  },
+
+  "north": {
+    "text": "It's way too cold here - you hit an iceberg and your boat explodes. No treasure for you"
+  },
+
+  "south": {
+    "text": "After two hours you reach an island, the island is full of treasure, you've won"
+  }
+}
