@@ -2,7 +2,7 @@
   "name": "create-your-own-adventure",
   "version": "1.0.0",
   "description": "Adventures from your phone",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "git@github.com:benfoxall/create-your-own-adventure.git",
   "author": "Ben Foxall (@benjaminbenben)",
   "license": "MIT",
