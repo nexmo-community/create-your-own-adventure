@@ -1,6 +1,7 @@
 {
+
   "start": {
-    "text": "You've woken up on a boat, what do you do?",
+    "text": "You can't quite remember how you got here, but you've woken up on what looks like a boat. What do you do?",
     "choices": [
       {
         "dtmf": "1",
@@ -9,13 +10,14 @@
       },{
         "dtmf": "2",
         "state": "captain",
-        "text": "assume you are the captain"
+        "text": "assume you are the captain and take control"
       }
     ]
   },
 
+
   "boat_fire": {
-    "text": "The boat is on fire, bad one. What next?",
+    "text": "The boat is on fire, this is pretty bad. What do you want to do next?",
     "choices": [
       {
         "dtmf": "1",
@@ -23,42 +25,45 @@
         "text": "jump overboard"
       },{
         "dtmf": "2",
-        "state": "snack",
+        "state": "look_for_snack",
         "text": "head to the galley for a snack"
       }
     ]
   },
 
-  "snack": {
-    "text": "You head down to the galley for a snack, but the galley is on fire and now you're trapped.",
-    "end": true
+
+  "look_for_snack": {
+    "text": "You head down to the galley for a snack, but the galley is on fire and now you're trapped. You're probably not going to find any treasure today"
   },
+
 
   "overboard": {
-    "text": "You're overboard - there are sharks, and things aren't looking good",
-    "end": true
+    "text": "You're overboard now - there are sharks and the odd explosion. Things aren't looking very good. Perhaps you shouldn't have set fire to the boat. No treasure today."
   },
 
+
   "captain": {
-    "text": "You've become captain. Well Done! Where do you want to sail to?",
+    "text": "Great. You're the captain now! Nice Hat. Where do you want to sail this boat to?",
     "choices": [
       {
         "dtmf": "1",
-        "state": "north",
+        "state": "go_north",
         "text": "sail Northward"
       },{
         "dtmf": "2",
-        "state": "south",
+        "state": "go_south",
         "text": "go south"
       }
     ]
   },
 
-  "north": {
-    "text": "It's way too cold here - you hit an iceberg and your boat explodes. No treasure for you"
+
+  "go_north": {
+    "text": "It's way too cold here - you hit an iceberg and your boat explodes. No treasure for you today"
   },
 
-  "south": {
-    "text": "After two hours you reach an island, the island is full of treasure, you've won"
+
+  "go_south": {
+    "text": "After two hours you reach an island, the island is full of treasure, it's all yours, you've won!"
   }
 }
