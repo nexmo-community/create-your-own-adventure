@@ -8,7 +8,11 @@ const adventure = require('./adventures/pirate-captain.json')
 const server = require('http').createServer()
 const app = express()
 
-app.get('/', (req, res) => res.send(`For adventures, call ${process.env.NUMBER}`))
+// frontend and exposed data
+app.use(express.static('ui'))
+app.get('/number', (req, res) => res.send(process.env.NUMBER))
+app.get('/adventure.json', (req, res) => res.send(adventure))
+
 
 app.get('/answer', (req, res) => {
   res.send(say('start'))
