@@ -22,7 +22,7 @@ app.post('/reply/:state', (req, res) => {
   if(!adventure[stateName]) {
     return res.send([{
       action: 'talk',
-      text: "Couldn't find state"
+      text: 'Couldn\'t find state'
     }])
   }
 
@@ -47,23 +47,23 @@ function ask(stateName){
   const commands = []
 
   commands.push({
-    "action": "talk",
-    "text": state.text
+    action: 'talk',
+    text: state.text
   })
 
   if(state.choices) {
     state.choices.forEach( choice =>
       commands.push({
-        "action": "talk",
-        "text": `to ${choice.text} press ${choice.dtmf}`
+        'action': 'talk',
+        'text': `to ${choice.text} press ${choice.dtmf}`
       })
     )
 
     commands.push({
-      "action": "input",
-      "maxDigits": 1,
-      "timeOut": 10,
-      "eventUrl": [`${process.env.HOST}/reply/${stateName}`]
+      'action': 'input',
+      'maxDigits': 1,
+      'timeOut': 10,
+      'eventUrl': [`${process.env.HOST}/reply/${stateName}`]
     })
 
   }
