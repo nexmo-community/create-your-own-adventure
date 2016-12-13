@@ -2,7 +2,7 @@ require('dotenv-safe').load()
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const adventure = require('./adventure.json')
+const adventure = require('./adventures/pirate-captain.json')
 
 const app = express()
 
@@ -22,7 +22,7 @@ app.post('/reply/:state', (req, res) => {
   if(!adventure[stateName]) {
     return res.send([{
       action: 'talk',
-      text: 'Couldn\'t find state'
+      text: 'Error: couldn\'t find state'
     }])
   }
 
