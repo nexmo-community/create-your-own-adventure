@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Adventures</title>
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Open+Sans" rel="stylesheet">
+    <style media="screen">
+      body {
+        font-family: 'Open Sans', sans-serif;
+        padding: 7vh 7vw;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Arvo', serif;
+      }
+      ul {
+        list-style: none;
+        padding:0
+      }
+      ul > li {
+        margin-bottom: 5em;
+        transition: .3s;
+      }
+      li.inactive {
+        opacity: 0.4;
+        transform: scale(0.8);
+        /*font-style: italic;*/
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <h1>For adventures, call […]</h1>
+
+    <hr/>
+
+    <ul>
+
+      <li>
+        <h2>Adventurer 075******82</h2>
+        <p>You can't quite remember how you got here, but you've woken up on what looks like a boat. What do you do?</p>
+        <ol>
+          <li>jump overboard</li>
+          <li>assume you are the captain and take control</li>
+        </ol>
+      </li>
+
+      <li class="inactive">
+        <h2>Adventurer 075******81</h2>
+        <p>You head down to the galley for a snack, but the galley is on fire and now you're trapped. You're probably not going to find any treasure today</p>
+      </li>
+
+      <li class="inactive">
+        <h2>Adventurer 075******80</h2>
+        <p>It's way too cold here - you hit an iceberg and your boat explodes. No treasure for you today</p>
+      </li>
+
+    </ul>
+
+  </body>
+</html>
