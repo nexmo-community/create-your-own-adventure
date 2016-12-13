@@ -1,0 +1,22 @@
+<ul>
+{{#each adventurers as adventurer}}
+  <li>
+    <h4 class="debug">{{adventurer.conversation_uuid}}</h4>
+    <h2>Adventurer {{adventurer.number}}</h2>
+    <State name={{adventurer.state}} />
+  </li>
+{{/each}}
+</ul>
+
+<script>
+
+import State from './State.html';
+
+export default {
+
+  components: {
+    State
+  }
+
+}
+</script>

@@ -1,0 +1,32 @@
+<p>{{text}}</p>
+<ol>
+  {{#each choices as choice}}
+    <li>{{choice.text}}</li>
+  {{/each}}
+</ol>
+
+<script>
+
+const request =
+  fetch('http://localhost:3000/adventure.json')
+  .then(res => res.json())
+
+export default {
+  data () {
+    return {
+      name: 'start',
+      data: {}
+    }
+  },
+
+  onrender () {
+    request.then(resp => this.set({'data': resp}))
+  },
+
+  computed: {
+    choices: (name, data) => (data[name] ? data[name].choices || [] : []),
+    text: (name, data) =>  (data[name] ? data[name].text : '-')
+  }
+
+}
+</script>

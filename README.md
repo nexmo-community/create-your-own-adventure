@@ -40,3 +40,10 @@ node server.js
 # optional - create public tunnel with ngrok
 ngrok http 3000
 ```
+
+
+## Rebuilding frontend
+
+The frontend is based on [svelte](https://github.com/sveltejs/svelte), and uses rollup for building the frontend scripts.
+
+The project comes with a bundled version of the frontend, though if you want to change it - install rollup globally and run `rollup -c -w` to build and watch the frontend files.
