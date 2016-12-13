@@ -9,7 +9,7 @@ const app = express()
 app.get('/', (req, res) => res.send(`For adventures, call ${process.env.NUMBER}`))
 
 app.get('/answer', (req, res) => {
-  res.send(ask('start'))
+  res.send(say('start'))
 })
 
 app.use(bodyParser.json())
@@ -32,9 +32,9 @@ app.post('/reply/:state', (req, res) => {
     .find(c => c.dtmf == choice)
 
   if(next) {
-    res.send(ask(next.state))
+    res.send(say(next.state))
   } else {
-    res.send(ask(stateName))
+    res.send(say(stateName))
   }
 
 })
@@ -42,7 +42,7 @@ app.post('/reply/:state', (req, res) => {
 app.listen(process.env.PORT || 3000)
 
 
-function ask(stateName){
+function say(stateName){
   const state = adventure[stateName]
   const commands = []
 
