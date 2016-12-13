@@ -1,4 +1,4 @@
-//import localforage from 'localforage'
+import localforage from 'localforage'
 import List from './List.html'
 import WebSocket from 'reconnecting-websocket'
 
@@ -16,8 +16,15 @@ const list = new List({
 })
 
 
-//todo: load initial state from storage
 const store = []
+
+localforage.getItem('store')
+  .then(data => {
+    if(data) {
+      store.push.apply(store, data)
+      list.set({adventurers: store})
+    }
+  })
 
 
 const handle = event => {
@@ -39,6 +46,8 @@ const handle = event => {
     }
 
     list.set({adventurers: store})
+
+    localforage.setItem('store', store)
   }
 
 
@@ -51,6 +60,8 @@ const handle = event => {
     }
 
     list.set({adventurers: store})
+
+    localforage.setItem('store', store)
   }
 
 }
