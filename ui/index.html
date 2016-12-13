@@ -57,5 +57,16 @@
 
     </ul>
 
+    <script type="text/javascript">
+
+    var host = 'ws://localhost:3000/' //location.origin.replace(/^http/, 'ws')
+
+    var ws = new WebSocket(host)
+    ws.onmessage = function (event) {
+      // TODO handle messages
+      console.log(event.data)
+    }
+    </script>
+
   </body>
 </html>

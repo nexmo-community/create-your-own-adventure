@@ -2,8 +2,10 @@ require('dotenv-safe').load()
 
 const express = require('express')
 const bodyParser = require('body-parser')
+const WebSocketServer = require('ws').Server
 const adventure = require('./adventures/pirate-captain.json')
 
+const server = require('http').createServer()
 const app = express()
 
 app.get('/', (req, res) => res.send(`For adventures, call ${process.env.NUMBER}`))
@@ -39,8 +41,6 @@ app.post('/reply/:state', (req, res) => {
 
 })
 
-app.listen(process.env.PORT || 3000)
-
 
 function say(stateName){
   const state = adventure[stateName]
@@ -71,3 +71,22 @@ function say(stateName){
   return commands
 
 }
+
+
+// expose events to frontend
+const wss = new WebSocketServer({server: server})
+
+app.post('/event/:token', (req, res) => {
+
+  res.sendStatus(200)
+
+  if(req.params.token == process.env.EVENT_TOKEN)
+    wss.clients.forEach( client => {
+      client.send(JSON.stringify(req.body))
+    })
+
+})
+
+
+server.on('request', app)
+server.listen(process.env.PORT || 3000)
