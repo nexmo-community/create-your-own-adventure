@@ -1,19 +1,10 @@
 require('dotenv-safe').load()
 
-const Nexmo = require('nexmo')
 const express = require('express')
 const bodyParser = require('body-parser')
 const adventure = require('./adventure.json')
 
-
 const app = express()
-const nexmo = new Nexmo({
-    apiKey: process.env.API_KEY,
-    apiSecret: process.env.API_SECRET,
-    applicationId: process.env.APP_ID,
-    // privateKey: `./keys/${process.env.APP_ID}.key`
-})
-
 
 app.get('/', (req, res) => res.send(`For adventures, call ${process.env.NUMBER}`))
 
