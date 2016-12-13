@@ -12,7 +12,8 @@ nexmo number:search gb
 nexmo number:buy <YOUR NUMBER>
 
 # create your application and link number to it
-nexmo app:create my-adventure https://example.com/answer https://example.com/event
+# generate an event token to prevent unauthorised updates
+nexmo app:create my-adventure https://example.com/answer https://example.com/event/<TOK>
 nexmo link:app <YOUR NUMBER> <YOUR APP_ID>
 ```
 
