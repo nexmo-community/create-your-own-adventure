@@ -14,16 +14,31 @@ app.get('/number', (req, res) => res.send(process.env.NUMBER))
 app.get('/adventure.json', (req, res) => res.send(adventure))
 
 
+app.use(bodyParser.json())
+
 app.get('/answer', (req, res) => {
   res.send(say('start'))
+
+  const conversation_uuid = req.param('conversation_uuid')
+  const from = req.param('from')
+
+  if(conversation_uuid && from) {
+    broadcast({
+      type:'create',
+      body: {
+        conversation_uuid: conversation_uuid,
+        from: from
+      }
+    })
+  }
 })
 
-app.use(bodyParser.json())
 
 app.post('/reply/:state', (req, res) => {
 
   const stateName = req.params.state
   const choice = req.body.dtmf
+  const cId = req.body.conversation_uuid
 
   if(!adventure[stateName]) {
     return res.send([{
@@ -39,6 +54,12 @@ app.post('/reply/:state', (req, res) => {
 
   if(next) {
     res.send(say(next.state))
+    if(cId) {
+      broadcast({
+        type:'update',
+        body: {conversation_uuid: cId, state: next.state}
+      })
+    }
   } else {
     res.send(say(stateName))
   }
@@ -76,7 +97,6 @@ function say(stateName){
 
 }
 
-
 // expose events to frontend
 const wss = new WebSocketServer({server: server})
 
@@ -85,12 +105,16 @@ app.post('/event/:token', (req, res) => {
   res.sendStatus(200)
 
   if(req.params.token == process.env.EVENT_TOKEN)
-    wss.clients.forEach( client => {
-      client.send(JSON.stringify(req.body))
-    })
+    broadcast({type: 'event', body:req.body})
 
 })
 
+
+function broadcast(message) {
+  wss.clients.forEach( client => {
+    client.send(JSON.stringify(message))
+  })
+}
 
 server.on('request', app)
 server.listen(process.env.PORT || 3000)
