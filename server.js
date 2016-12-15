@@ -28,7 +28,7 @@ app.get('/answer/:token', (req, res) => {
       type:'create',
       body: {
         conversation_uuid: conversation_uuid,
-        from: from
+        from: obscure(from)
       }
     })
   }
@@ -105,6 +105,8 @@ app.post('/event/:token', (req, res) => {
 
   res.sendStatus(200)
 
+  req.body.from = obscure(req.body.from)
+
   if(req.params.token == process.env.EVENT_TOKEN)
     broadcast({type: 'event', body:req.body})
 
@@ -119,3 +121,8 @@ function broadcast(message) {
 
 server.on('request', app)
 server.listen(process.env.PORT || 3000)
+
+
+function obscure(number){
+  return (number+'').replace(/(\d{4})\d+(\d{2})/, '$1******$2')
+}
