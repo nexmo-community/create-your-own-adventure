@@ -1,0 +1,38 @@
+<h1>For pirates, adventures &amp; treasure, call&nbsp;{{number}}</h1>
+
+<hr/>
+
+<ul>
+{{#each conversations as conversation}}
+  <li>
+    <h4 class="debug">{{conversation.conversation_uuid}}</h4>
+    <h2>Adventurer: {{conversation.number}}</h2>
+    <State name={{conversation.state}} />
+  </li>
+{{/each}}
+</ul>
+
+<script>
+
+import State from './State.html'
+
+export default {
+
+  data() {
+    return {
+      number: '___'
+    }
+  },
+
+  components: {
+    State
+  },
+
+  onrender() {
+    fetch('/number')
+      .then(res => res.text())
+      .then(number => this.set({'number': number}))
+  }
+
+}
+</script>
