@@ -1,5 +1,5 @@
 import localforage from 'localforage'
-import List from './List.html'
+import List from './Components/List.html'
 import WebSocket from 'reconnecting-websocket'
 
 

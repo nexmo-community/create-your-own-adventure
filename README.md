@@ -42,8 +42,16 @@ ngrok http 3000
 ```
 
 
-## Rebuilding frontend
+## Frontend ui
 
-The frontend is based on [svelte](https://github.com/sveltejs/svelte), and uses rollup for building the frontend scripts.
+The project comes with a bundled version of the frontend script (`ui/build`). If you want to make any changes, then change any scripts, and run either:
 
-The project comes with a bundled version of the frontend, though if you want to change it - install rollup globally and run `rollup -c -w` to build and watch the frontend files.
+* `npm run frontend:build` to compile build.js once
+* `npm run frontend:watch` to watch the code and compile on change (watch out, this can sometimes hang after compile errors)
+
+
+The frontend uses:
+
+* [svelte](https://github.com/sveltejs/svelte) for the ui components/data-binding
+* [buble](https://buble.surge.sh/) for es2015 transpilation
+* [rollup](http://rollupjs.org/) for bundling

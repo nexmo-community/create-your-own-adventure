@@ -6,6 +6,10 @@
   "repository": "git@github.com:benfoxall/create-your-own-adventure.git",
   "author": "Ben Foxall (@benjaminbenben)",
   "license": "MIT",
+  "scripts": {
+    "frontend:build": "rollup -c",
+    "frontend:watch": "rollup -c -w"
+  },
   "dependencies": {
     "body-parser": "^1.15.2",
     "dotenv-safe": "^3.0.0",
