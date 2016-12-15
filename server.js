@@ -16,13 +16,14 @@ app.get('/adventure.json', (req, res) => res.send(adventure))
 
 app.use(bodyParser.json())
 
-app.get('/answer', (req, res) => {
+app.get('/answer/:token', (req, res) => {
   res.send(say('start'))
 
   const conversation_uuid = req.param('conversation_uuid')
   const from = req.param('from')
 
-  if(conversation_uuid && from) {
+  if(conversation_uuid && from &&
+    req.params.token == process.env.EVENT_TOKEN) {
     broadcast({
       type:'create',
       body: {
