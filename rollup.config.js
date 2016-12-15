@@ -5,8 +5,8 @@ import buble from 'rollup-plugin-buble'
 import uglify from 'rollup-plugin-uglify'
 
 export default {
-  entry: 'ui/source.js',
-  dest: 'ui/build.js',
+  entry: 'ui/main.js',
+  dest: 'ui/main.dist.js',
   format: 'iife',
   plugins: [
     svelte(),
