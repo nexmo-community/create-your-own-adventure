@@ -28,7 +28,7 @@ export default {
     State
   },
 
-  onrender() {
+  oncreate() {
     fetch('/number')
       .then(res => res.text())
       .then(number => this.set({'number': number}))
