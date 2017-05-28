@@ -23,7 +23,7 @@ Copy `.env.example` to `.env` - use this to set the following environmental vari
 
 * `API_KEY` & `API_SECRET` - your Nexmo credentials
 * `APP_ID` - the application id
-* `HOST` - the host for callbacks `https://example.com:8080` (include protocol & no trailing slash)
+* `HOST` - the host for callbacks `https://example.com:3000` (include protocol & no trailing slash)
 * `NUMBER` - the phone number linked to your app (for the ui)
 * `PORT` (optional) - which port to listen to (default 3000)
 
