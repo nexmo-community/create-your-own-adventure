@@ -13,7 +13,7 @@ nexmo number:buy <YOUR NUMBER>
 
 # create your application and link number to it
 # generate an event token to prevent unauthorised updates
-nexmo app:create my-adventure https://example.com/answer https://example.com/event/<TOK>
+nexmo app:create my-adventure https://example.com:3000/answer/<TOK> https://example.com:3000/event/<TOK>
 nexmo link:app <YOUR NUMBER> <YOUR APP_ID>
 ```
 
