@@ -19,8 +19,8 @@ app.use(bodyParser.json())
 app.get('/answer/:token', (req, res) => {
   res.send(say('start'))
 
-  const conversation_uuid = req.param('conversation_uuid')
-  const from = req.param('from')
+  const conversation_uuid = req.params.conversation_uuid
+  const from = req.params.from
 
   if(conversation_uuid && from &&
     req.params.token == process.env.EVENT_TOKEN) {
