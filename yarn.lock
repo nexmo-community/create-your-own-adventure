@@ -984,8 +984,7 @@ negotiator@0.6.1:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
 nexmo@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/nexmo/-/nexmo-1.1.0.tgz#8c3a8ed6a9c6218fc8af314ca6b201a5a2490cae"
+  version "1.1.1"
   dependencies:
     jsonwebtoken "^7.1.9"
     uuid "^2.0.2"
